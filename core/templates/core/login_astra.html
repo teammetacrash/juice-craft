@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JUICE CRAFT | Admin Login</title>
+<link rel="stylesheet" href="{% static 'core/css/astra.css' %}">
+</head>
+<body class="login-body">
+<main class="login-shell">
+<section class="login-brand-panel">
+<div class="login-brand-mark">JC</div>
+<div class="login-copy">
+<span class="eyebrow">JUICE CRAFT BUSINESS SYSTEM</span>
+<h1>JUICE CRAFT</h1>
+<p>Manage billing, inventory, wastage, expenses and daily performance from one clean workspace.</p>
+</div>
+</section>
+<section class="login-card-wrap">
+<div class="login-card">
+<span class="eyebrow">ADMIN ACCESS</span>
+<h2>Welcome Back</h2>
+<p class="muted-copy">Sign in to manage your shop.</p>
+{% if error %}<div class="brand-alert">{{ error }}</div>{% endif %}
+<form method="post">
+{% csrf_token %}
+<label class="form-label">Username</label>
+<input class="form-control" name="username" autocomplete="username" placeholder="Enter username" required autofocus>
+<label class="form-label">Password</label>
+<input class="form-control" type="password" name="password" autocomplete="current-password" placeholder="Enter password" required>
+<button class="brand-btn" type="submit">Login to JUICE CRAFT</button>
+</form>
+</div>
+</section>
+</main>
+</body>
+</html>
