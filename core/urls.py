@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .pdf import invoice_pdf
 
 urlpatterns = [
     path("healthz/", views.health_view, name="health"),
@@ -15,5 +16,6 @@ urlpatterns = [
     path("expenses/", views.expenses, name="expenses"),
     path("reports/", views.reports, name="reports"),
     path("settings/", views.settings_page, name="settings"),
+    path("invoice/<int:sale_id>/pdf/", invoice_pdf, name="invoice_pdf"),
     path("api/<str:action>/", views.api_dispatch, name="api_dispatch"),
 ]
