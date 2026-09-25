@@ -21,7 +21,7 @@ def _logged_in(request):
 def _page(request, title, active):
     if not _logged_in(request):
         return redirect("login")
-    return render(request, "core/app.html", {"title": title, "active": active})
+    return render(request, "core/app_astra.html", {"title": title, "active": active})
 
 
 def login_view(request):
@@ -38,7 +38,7 @@ def login_view(request):
             request.session.set_expiry(60 * 60 * 12)
             return redirect("dashboard")
         error = "Incorrect username or password."
-    return render(request, "core/login.html", {"error": error})
+    return render(request, "core/login_astra.html", {"error": error})
 
 
 def logout_view(request):
