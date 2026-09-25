@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} | JUICE CRAFT</title>
+<link rel="stylesheet" href="{% static 'core/css/astra.css' %}">
+</head>
+<body data-page="{{ active }}">
+<div class="app-shell">
+<aside id="sidebar" class="sidebar">
+<div class="sidebar-brand"><div class="brand-icon">JC</div><div><strong>JUICE CRAFT</strong><span>Business Manager</span></div></div>
+<nav class="sidebar-nav">
+<a href="/dashboard/" class="{% if active == 'dashboard' %}active{% endif %}"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+<a href="/billing/" class="{% if active == 'billing' %}active{% endif %}"><span class="nav-icon">▤</span><span>Billing</span></a>
+<a href="/inventory/" class="{% if active == 'inventory' %}active{% endif %}"><span class="nav-icon">□</span><span>Items & Inventory</span></a>
+<a href="/stock/" class="{% if active == 'stock' %}active{% endif %}"><span class="nav-icon">↓</span><span>New Stock</span></a>
+<a href="/prepared/" class="{% if active == 'prepared' %}active{% endif %}"><span class="nav-icon">◒</span><span>Prepared Items</span></a>
+<a href="/wastage/" class="{% if active == 'wastage' %}active{% endif %}"><span class="nav-icon">×</span><span>Wastage</span></a>
+<a href="/expenses/" class="{% if active == 'expenses' %}active{% endif %}"><span class="nav-icon">₹</span><span>Expenses</span></a>
+<a href="/reports/" class="{% if active == 'reports' %}active{% endif %}"><span class="nav-icon">⌁</span><span>Reports</span></a>
+<a href="/settings/" class="{% if active == 'settings' %}active{% endif %}"><span class="nav-icon">⚙</span><span>Settings</span></a>
+</nav>
+<a class="sidebar-logout" href="/logout/"><span class="nav-icon">←</span><span>Logout</span></a>
+</aside>
+<main class="main-panel">
+<header class="topbar">
+<div class="topbar-left"><button id="menuBtn" class="menu-button">☰</button><div><span class="topbar-kicker">JUICE CRAFT</span><h1>{{ title }}</h1></div></div>
+<div class="topbar-actions"><a class="icon-button" href="/reports/">⌁</a><a class="primary-button" href="/billing/">＋ New Bill</a></div>
+</header>
+<section id="pageRoot" class="content-area"><div class="page-loading"><div class="loading-dot"></div><span>Loading...</span></div></section>
+</main>
+</div>
+<div id="overlay" class="nav-overlay"></div>
+<div id="toastHost" class="toast-host"></div>
+{% csrf_token %}
+<script src="{% static 'core/js/astra.js' %}"></script>
+</body>
+</html>
