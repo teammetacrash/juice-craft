@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }} | JUICE CRAFT</title>
+<link rel="stylesheet" href="{% static 'core/css/app.css' %}">
+</head>
+<body data-page="{{ active }}">
+<aside id="sidebar">
+<a href="/dashboard/"><strong>JUICE CRAFT</strong></a>
+<nav>
+<a href="/dashboard/">Dashboard</a>
+<a href="/billing/">Billing</a>
+<a href="/inventory/">Items & Stock</a>
+<a href="/prepared/">Prepared Items</a>
+<a href="/stock/">New Stock</a>
+<a href="/wastage/">Wastage</a>
+<a href="/expenses/">Expenses</a>
+<a href="/reports/">Reports</a>
+<a href="/settings/">Settings</a>
+</nav>
+<a href="/logout/">Logout</a>
+</aside>
+<main>
+<header><button id="menuBtn">Menu</button><div><small>JUICE CRAFT</small><h1>{{ title }}</h1></div><a class="brand-btn" href="/billing/">New Bill</a></header>
+<section id="pageRoot"><p>Loading...</p></section>
+</main>
+<div id="overlay"></div>
+<div id="toastHost"></div>
+{% csrf_token %}
+<script src="{% static 'core/js/app.js' %}"></script>
+</body>
+</html>
