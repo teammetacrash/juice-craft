@@ -79,3 +79,12 @@ button:focus-visible,a:focus-visible,.range-options button:focus-visible{outline
  .billing-layout .product-card .product-icon{width:35px;height:35px}
  .billing-layout .product-card-bottom{gap:8px}
 }
+
+/* Consistent hover, keyboard-focus and press feedback for enabled controls. */
+button,[role="button"]{transition:background-color .15s,color .15s,border-color .15s,filter .15s,scale .1s,translate .1s}
+@media(hover:hover){
+ button:not(:disabled):not([aria-disabled="true"]):hover,[role="button"]:not([aria-disabled="true"]):hover{filter:brightness(1.15);outline:1px solid #E9C567;outline-offset:2px}
+}
+button:not(:disabled):not([aria-disabled="true"]):active,[role="button"]:not([aria-disabled="true"]):active{filter:brightness(.88);scale:.98;translate:0 1px;outline:1px solid #E9C567;outline-offset:1px}
+button:focus-visible,[role="button"]:focus-visible{outline:2px solid #E9C567!important;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){button,[role="button"]{transition:none!important}button:active,[role="button"]:active{scale:none;translate:none}}
