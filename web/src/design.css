@@ -62,3 +62,20 @@ input::placeholder,textarea::placeholder{color:#AEB3B5!important}input:focus,tex
 button:focus-visible,a:focus-visible,.range-options button:focus-visible{outline-color:#E9C567}
 @media(max-width:767px){.inventory-panel .responsive-table .edit-button{background:#F5C842!important;color:#151A1F!important;border-color:#F5C842!important}}
 @media print{#jc-receipt,#jc-receipt *{color:#151A1F!important;background:#F5F5F5!important;border-color:#303638!important}}
+
+/* Billing catalogue only: one rectangular item per row. */
+.billing-layout .product-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+.billing-layout .product-card{display:grid;grid-template-columns:44px minmax(0,1fr) auto;grid-template-rows:auto auto auto;column-gap:14px;row-gap:3px;align-items:center;padding:14px 16px}
+.billing-layout .product-card-top{display:contents}
+.billing-layout .product-card .product-icon{grid-column:1;grid-row:1/4;align-self:center}
+.billing-layout .product-card>strong{grid-column:2;grid-row:1;overflow-wrap:anywhere}
+.billing-layout .product-card>small{grid-column:2;grid-row:2;margin:0;overflow-wrap:anywhere}
+.billing-layout .product-card .category-label{grid-column:2;grid-row:3;justify-self:start;padding:0;max-width:none}
+.billing-layout .product-card-bottom{grid-column:3;grid-row:1/3;margin:0;gap:14px;justify-content:flex-end;white-space:nowrap}
+.billing-layout .product-card>.stock-hint{grid-column:3;grid-row:3;margin:0;text-align:right}
+.billing-layout .product-card:hover:not(:disabled){transform:none}
+@media(max-width:767px){
+ .billing-layout .product-card{grid-template-columns:35px minmax(0,1fr) auto;padding:12px;column-gap:10px}
+ .billing-layout .product-card .product-icon{width:35px;height:35px}
+ .billing-layout .product-card-bottom{gap:8px}
+}
